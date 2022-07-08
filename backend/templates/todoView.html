@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<center>
+    <table>
+        <tr>
+            <th class="border">Title</th>
+            <th class="border">Description</th>
+            <th class="border">Deadline</th>
+            <th class="border"></th>
+        </tr>
+        {% for i in query %}
+        <tr>
+            <td class="border"> {{i.title}} </td>
+            <td class="border"> {{i.description}} </td>
+            <td class="border"> {{i.end_date}} </td>
+            <td class="border">
+                <a href="{% url 'delete' i.id %}">
+                    <button type="button">Delete</button>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="http://127.0.0.1:8000/create">
+        <button type="button">Create</button>
+    </a>
+    </span>
+    </table>
+</center>
+
+
+{% endblock content %}
